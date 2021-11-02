@@ -1,0 +1,125 @@
+#root{
+    text-align: center;
+}
+
+
+/* Component 1 */
+.Main-panel{
+    position: relative;
+    display: inline-block;
+    margin: auto;
+    width: 80%;
+    height: 864px;
+}
+
+
+
+/* 房间列表 */
+.Room-list-panel{
+    position: absolute;
+    left: 0%;
+    right: 34.42%;
+    top: 11.57%;
+    bottom: 0%;
+
+    background: #C4C4C4;
+    border-radius: 22px;
+
+}
+
+
+/* 头像 */
+.Avatar-panel{
+    position: absolute;
+    left: 74.69%;
+    right: 3.19%;
+    top: 0%;
+    bottom: 67.13%;
+
+    background: #C4C4C4;
+}
+
+
+
+/* name */
+.User-name-span{
+    position: absolute;
+    left: 79.36%;
+    right: 7.94%;
+    top: 24.77%;
+    bottom: 69.33%;
+
+    font-family: "Microsoft YaHei UI", serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+
+    color: #000000;
+
+}
+
+
+
+/* 创建房间 */
+.Creat-button{
+    position: absolute;
+    left: 0;
+    right: 83.33%;
+    top: 0;
+    bottom: 94.79%;
+    background: #C4C4C4;
+
+}
+
+
+/* 当前经验值 */
+.Line1-panel{
+    position: absolute;
+    left: 71.5%;
+    right: 0%;
+    top: 41.55%;
+    bottom: 51.27%;
+
+    background: #C4C4C4;
+}
+
+
+
+/* 等级 */
+.Line2-panel {
+    position: absolute;
+    left: 71.5%;
+    right: 0%;
+    top: 52.2%;
+    bottom: 40.62%;
+
+    background: #C4C4C4;
+}
+
+/* 勋章 */
+.Line3-panel{
+    position: absolute;
+    left: 71.5%;
+    right: 0;
+    top: 62.85%;
+    bottom: 29.98%;
+
+    background: #C4C4C4;
+}
+
+
+
+/* 历史战绩 */
+.Line4-panel{
+    position: absolute;
+    left: 71.5%;
+    right: 0;
+    top: 73.5%;
+    bottom: 0%;
+
+    background: #C4C4C4;
+    border-radius: 3px;
+
+}
