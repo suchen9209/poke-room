@@ -1,5 +1,6 @@
 #root{
     text-align: center;
+    background-image: url("/img/big_bg1.jpg");
 }
 
 
@@ -24,6 +25,7 @@
 
     background: #C4C4C4;
     border-radius: 22px;
+    opacity: 40%;
 
 }
 
@@ -67,10 +69,11 @@
     position: absolute;
     left: 0;
     right: 83.33%;
-    top: 0;
-    bottom: 94.79%;
-    background: #C4C4C4;
-
+    top: 5%;
+    height: 46px;
+    /* bottom: 94.79%; */
+    /*background: #C4C4C4;*/
+    margin-left: 3%;
 }
 
 
