@@ -36,29 +36,31 @@
     left: 74.69%;
     right: 3.19%;
     top: 0%;
-    bottom: 67.13%;
-
-    background: #C4C4C4;
+    bottom: 62.13%;
+    text-align: left;
+    background: url("/img/tou.png");
+    background-size: 100%;
+    border-radius: 100%;
 }
 
 
 
 /* name */
 .User-name-span{
-    position: absolute;
-    left: 79.36%;
-    right: 7.94%;
-    top: 24.77%;
-    bottom: 69.33%;
-
     font-family: "Microsoft YaHei UI", serif;
     font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 21px;
+    font-size: 39px;
+    /* line-height: 21px; */
     text-align: center;
+    color: #040404;
+    display: inline-block;
+    background: url(/img/name_bg.png.png);
+    width: 100%;
+    line-height: 50px;
+    position: absolute;
+    bottom: 2%;
+    font-weight: bold;
 
-    color: #000000;
 
 }
 
@@ -85,7 +87,9 @@
     top: 41.55%;
     bottom: 51.27%;
 
-    background: #C4C4C4;
+    background: rgb(193 193 193 / 80%);
+    line-height: 60px;
+    font-size: 28px;
 }
 
 
@@ -98,7 +102,9 @@
     top: 52.2%;
     bottom: 40.62%;
 
-    background: #C4C4C4;
+    background: rgb(193 193 193 / 80%);
+    line-height: 60px;
+    font-size: 28px;
 }
 
 /* 勋章 */
@@ -109,7 +115,9 @@
     top: 62.85%;
     bottom: 29.98%;
 
-    background: #C4C4C4;
+    background: rgb(193 193 193 / 80%);
+    line-height: 60px;
+    font-size: 28px;
 }
 
 

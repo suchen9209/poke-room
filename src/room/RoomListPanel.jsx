@@ -1,15 +1,6 @@
+
 function RoomListPanel() {
 
-    // const buttonStyle = {
-    //     display:"block",
-    //     color : "#00a1a7",
-    //     width: "100%",
-    //     height:"100%",
-    //     background: "url('/img/create_room.png')",
-    //     border: "none",
-    //     cursor: "pointer",
-    //     borderRadius:14
-    // };
     const topLine = {
         marginTop : 10,
         fontSize:28,
@@ -17,7 +8,11 @@ function RoomListPanel() {
     const roomLine = {
         marginTop : 10,
         fontSize:20,
-        background:"url('/img/line_bg.png')"
+        background:"url('/img/line_bg.png')",
+        cursor: "pointer",
+        "&:hover":{
+            opacity:"100%",
+        }
     }
     let column_1 = new ColumnBase(34,86);
     let column_2 = new ColumnBase(40,300);
