@@ -1,3 +1,5 @@
+import {useEffect} from "react";
+import axios from "axios";
 
 function RoomListPanel() {
 
@@ -19,6 +21,22 @@ function RoomListPanel() {
     let column_3 = new ColumnBase(40,100);
     let column_4 = new ColumnBase(40,120);
     let column_5 = new ColumnBase(40,120);
+
+    useEffect(()=>{
+        axios({
+            url:"/room/list",
+            method:"post",
+            baseURL:"http://localhost:8080/v2/",
+            params:{},
+            mode:"no-cors",
+            withCredentials:true,
+            async:true
+        }).then(res=>{
+            console.log(res)
+        })
+
+
+    })
 
     return (
         <div className="Room-list-panel">
