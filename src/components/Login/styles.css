@@ -7,7 +7,7 @@ body {
   font-family: 'Gudea', sans-serif;
   /* Old browsers */
   /* FF3.6+ */
-
+  background-image: url("/img/login/bg1.jpg");
 }
 *, *:before, *:after {
   /* -webkit-box-sizing: content-box; */
