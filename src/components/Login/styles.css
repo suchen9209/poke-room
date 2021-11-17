@@ -62,19 +62,6 @@ body p {
   font-size: 10px;
   text-align: left;
 }
-body .testtwo {
-  left: -320px !important;
-}
-body .test {
-  box-shadow: 0px 20px 30px 3px rgba(0, 0, 0, 0.55);
-  pointer-events: none;
-  top: -100px !important;
-  -webkit-transform: rotateX(70deg) scale(0.8) !important;
-          transform: rotateX(70deg) scale(0.8) !important;
-  opacity: .6 !important;
-  -webkit-filter: blur(1px);
-          filter: blur(1px);
-}
 body .login 
 {
   box-shadow: -15px 15px 15px rgba(6, 17, 47, 0.7);
