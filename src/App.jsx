@@ -4,7 +4,7 @@ import {BrowserRouter, Link, Route, Router,  useParams,useNavigate } from 'react
 function App(){
     let navigate = useNavigate();
     useEffect(()=>{
-        navigate("/room")
+        navigate("/login")
     })
 
   return (

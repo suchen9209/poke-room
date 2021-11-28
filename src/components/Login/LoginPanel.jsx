@@ -45,7 +45,7 @@ function SetPassword(e){
 
 function LoginPanel(){
     let navigate = useNavigate();
-    const [isLogin, setLoginStatus] = useState(0);
+    const [isLogin, setLoginStatus] = useState(false);
     const [uname, setUname] = useState('');
     const [password, setPassword] = useState('');
     const [clickButton, setClick] = useState(false);
@@ -82,6 +82,7 @@ function LoginPanel(){
                 localStorage.UserName = res.data.Data.Name
                 localStorage.Point = res.data.Data.Point
 
+                setLoginStatus(true)
                 // useEffect(()=>{
                 navigate("/room")
                 // })
@@ -94,6 +95,8 @@ function LoginPanel(){
     },[uname,password,clickButton])
 
     return(
+        <div className="container">
+            <div className="login_main_panel">
         <div className='login' id="login_panel">
             <div className='login_title'>
                 <span>PY登录</span>
@@ -123,10 +126,12 @@ function LoginPanel(){
                     <input type='button' value='登录' />
                 </div>
             </div>
-            <div className='success'>
-            </div>
-            <div className='disclaimer'>
-                <p>欢迎来到阿拉斯加~<span id="show_register" style={{color: '#2fa0ec',cursor: 'pointer'}}>我没号！</span></p>
+            {/*<div className='success'>*/}
+            {/*</div>*/}
+            {/*<div className='disclaimer'>*/}
+            {/*    <p>欢迎来到阿拉斯加~<span id="show_register" style={{color: '#2fa0ec',cursor: 'pointer'}}>我没号！</span></p>*/}
+            {/*</div>*/}
+        </div>
             </div>
         </div>
     )

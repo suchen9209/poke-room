@@ -1,4 +1,4 @@
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import axios from "axios";
 
 function RoomListPanel() {
@@ -7,6 +7,9 @@ function RoomListPanel() {
         marginTop : 10,
         fontSize:28,
     }
+    const [roomListData, setListData] = useState([]);
+    const [refresh,setRefresh] = useState(true)
+
     const roomLine = {
         marginTop : 10,
         fontSize:20,
@@ -23,19 +26,33 @@ function RoomListPanel() {
     let column_5 = new ColumnBase(40,120);
 
     useEffect(()=>{
-        axios({
-            url:"/room/list",
-            method:"post",
-            baseURL:"http://localhost:8080/v2/",
-            params:{},
-            mode:"no-cors",
-            withCredentials:true,
-            async:true
-        }).then(res=>{
-            console.log(res)
-        })
+        if(refresh){
+            axios({
+                url:"/room/list",
+                method:"post",
+                baseURL:"http://localhost:8080/v2/",
+                params:{},
+                mode:"no-cors",
+                withCredentials:true,
+                async:true
+            }).then(res=>{
+                setListData(res.data.Data)
+                console.log(res)
+                setRefresh(false)
+            })
+        }
+    },[refresh])
 
-
+    let listItem_1 = roomListData.map((item, key) => {
+        return (
+            <div style={roomLine}>
+                <span style={column_1}>{item.Id}</span>
+                <span style={column_2}>{item.RoomName}</span>
+                <span style={column_3}>suchot</span>
+                <span style={column_4}>8</span>
+                <span style={column_5}>DOING</span>
+            </div>
+        )
     })
 
     return (
@@ -47,20 +64,7 @@ function RoomListPanel() {
                 <span style={column_4}>当前人数</span>
                 <span style={column_5}>房间状态</span>
             </div>
-            <div style={roomLine}>
-                <span style={column_1}>1005</span>
-                <span style={column_2}>suchot的房间</span>
-                <span style={column_3}>suchot</span>
-                <span style={column_4}>8</span>
-                <span style={column_5}>DOING</span>
-            </div>
-            <div style={roomLine}>
-                <span style={column_1}>1006</span>
-                <span style={column_2}>wuke的房间</span>
-                <span style={column_3}>wuke</span>
-                <span style={column_4}>6</span>
-                <span style={column_5}>WAITING</span>
-            </div>
+            {listItem_1}
         </div>
     )
 }
