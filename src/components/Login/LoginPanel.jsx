@@ -78,9 +78,9 @@ function LoginPanel(){
                 async:true
             }).then(res=>{
                 console.log(res)
-                localStorage.UserId = res.data.Data.Id
-                localStorage.UserName = res.data.Data.Name
-                localStorage.Point = res.data.Data.Point
+                localStorage.UserId = res.Data.Id
+                localStorage.UserName = res.Data.Name
+                localStorage.Point = res.Data.Point
 
                 setLoginStatus(true)
                 // useEffect(()=>{

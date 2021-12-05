@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import axios from "axios";
+import request from "../service/request";
 
 class AvatarPanel extends React.Component{
     constructor(params) {
@@ -13,24 +14,26 @@ class AvatarPanel extends React.Component{
     }
 
     componentDidMount() {
-        axios({
-            url:"user/login",
-            method:"post",
-            baseURL:"http://localhost:8080/v2/",
-            params:{
-                "uname" : "suchot",
-                "password": "123456"
-            },
-            mode:"no-cors",
-            withCredentials:true,
-            async:true
-        }).then(res=>{
-            console.log(res)
-            this.setState({
-                username:res.data.Data.Name,
-                point:res.data.Data.Point
-            })
-        })
+        setTimeout(()=>{
+                request({
+                    url:"user/info",
+                    method:"post",
+                    params:{
+                    },
+                    mode:"no-cors",
+                    withCredentials:true,
+                    async:true
+                }).then(res=>{
+                    console.log(res)
+                    this.setState({
+                        username:res.data.Data.Name,
+                        point:res.data.Data.Point
+                    })
+                })
+        },1000
+
+        )
+
     }
 
     render(){

@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
+import request from "../service/request";
 
 function RoomListPanel() {
 
@@ -27,10 +28,9 @@ function RoomListPanel() {
 
     useEffect(()=>{
         if(refresh){
-            axios({
+            request({
                 url:"/room/list",
                 method:"post",
-                baseURL:"http://localhost:8080/v2/",
                 params:{},
                 mode:"no-cors",
                 withCredentials:true,
