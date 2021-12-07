@@ -8,6 +8,7 @@ import RoomListPanel from "./room/RoomListPanel";
 import Background from "./components/Login/Background";
 import RegisterPanel from "./components/Login/RegisterPanel";
 import LoginPanel from "./components/Login/LoginPanel";
+import GameMain from "./components/Game/GameMain";
 
 ReactDOM.render(
     <BrowserRouter>
@@ -17,6 +18,7 @@ ReactDOM.render(
             <Route path="register" element={<RegisterPanel />} />
             <Route path="room" element={<RoomList />} />
             <Route path="invoices" element={<RoomListPanel />} />
+            <Route path="gameRoom" element={<GameMain />} />
         </Routes>
     </BrowserRouter>
     ,

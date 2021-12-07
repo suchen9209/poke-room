@@ -1,0 +1,790 @@
+/* Slide 16:9 - 1 */
+
+.MainPanel{
+    position: relative;
+    width: 1920px;
+    height: 1080px;
+
+    background: #FFFFFF;
+}
+
+.ShowPanel{
+    position: absolute;
+    width: 1050px;
+    height: 552px;
+    left: calc(50% - 1050px/2 - 3px);
+    top: 27px;
+
+    background: #C4C4C4;
+
+}
+
+.Position1{
+    position: absolute;
+    width: 343px;
+    height: 205px;
+    left: 40px;
+    top: 27px;
+    background: #dddddd;
+}
+.Position2{
+    position: absolute;
+    width: 343px;
+    height: 205px;
+    left: 40px;
+    top: 250px;
+    background: #dddddd;
+}
+.Position3{
+    position: absolute;
+    width: 343px;
+    height: 205px;
+    left: 40px;
+    top: 473px;
+
+    background: #dddddd;
+}
+.Position4{
+    position: absolute;
+    width: 343px;
+    height: 205px;
+    left: 40px;
+    top: 696px;
+    background: #dddddd;
+}
+.Position5{
+    position: absolute;
+    width: 343px;
+    height: 205px;
+    left: 1537px;
+    top: 27px;
+
+    background: #dddddd;
+}
+.Position6{
+    position: absolute;
+    width: 343px;
+    height: 205px;
+    left: 1537px;
+    top: 250px;
+
+    background: #dddddd;
+}
+.Position7{
+    position: absolute;
+    width: 343px;
+    height: 205px;
+    left: 1537px;
+    top: 473px;
+    background: #dddddd;
+}
+.Position8{
+    position: absolute;
+    width: 343px;
+    height: 205px;
+    left: 1537px;
+    top: 696px;
+    background: #dddddd;
+}
+.PanelAvatar{
+    position: relative;
+    height: 100px;
+    width: 100px;
+    left: 30px;
+    /* right: 1718px; */
+    background: black;
+    top: 17px;
+
+
+}
+.PanelName{
+    position: relative;
+    height: 40px;
+    width: 120px;
+    left: 21px;
+    right: 1719px;
+    top: 40px;
+    background: #1B0F0F;
+}
+
+.PanelCard{
+    position: relative;
+    height: 93px;
+    left: 170px;
+    width: 150px;
+    right: 1558px;
+    top: -120px;
+    background: #F7FC01;
+}
+
+.PanelPoint{
+    position: relative;
+    height: 65px;
+    left: 164px;
+    width: 164px;
+    right: 1558px;
+    top: -104px;
+    background: #FF0B0B;
+
+}
+
+.UserPanel{
+    position: absolute;
+    width: 1050px;
+    height: 297px;
+    left: 432px;
+    top: 605px;
+    background: #61bfff;
+}
+
+.UserAvatar{
+    position: relative;
+    width: 176px;
+    height: 176px;
+    left: 20px;
+    top: 20px;
+    background: #FF0000;
+}
+
+.UserName{
+    position: relative;
+    width: 176px;
+    height: 57px;
+    left: 20px;
+    top: 42px;
+    background: #aa0101;
+}
+
+.UserOperationList{
+    position: relative;
+    width: 488px;
+    height: 144px;
+    left: 246px;
+    top: -200px;
+    background: #000000;
+}
+
+.UserOperationItem{
+    display: inline-block;
+    width: 76px;
+    height: 94px;
+    background: #C4C4C4;
+    margin: 23px 11px 10px 10px;
+}
+
+.UserInfo{
+    position: absolute;
+    width: 485px;
+    height: 94px;
+    left: 246px;
+    top: 194px;
+    background: #008F0E;
+
+}
+
+.UserCard{
+    position: absolute;
+    width: 270px;
+    height: 191px;
+    left: 755px;
+    top: 60px;
+    background: #BDFF00;
+}
+
+.UserCardItem{
+    width: 109px;
+    height: 150px;
+    background: #E80;
+    display: inline-block;
+    margin: 20px 11px 8px 10px;
+}
+
+
+
+/*!* Group 3 *!*/
+
+/*position: absolute;*/
+/*width: 343px;*/
+/*height: 205px;*/
+/*left: 40px;*/
+/*top: 577px;*/
+
+
+
+/*!* Rectangle 2 *!*/
+
+/*position: absolute;*/
+/*width: 343px;*/
+/*height: 205px;*/
+/*left: 40px;*/
+/*top: 577px;*/
+
+/*background: #C4C4C4;*/
+
+
+/*!* Ellipse 1 *!*/
+
+/*position: absolute;*/
+/*width: 125px;*/
+/*height: 122px;*/
+/*left: 76px;*/
+/*top: 598px;*/
+
+/*background: #1F0202;*/
+
+
+/*!* Rectangle 3 *!*/
+
+/*position: absolute;*/
+/*width: 125px;*/
+/*height: 40px;*/
+/*left: 76px;*/
+/*top: 732px;*/
+
+/*background: #1B0F0F;*/
+
+
+/*!* Rectangle 4 *!*/
+
+/*position: absolute;*/
+/*width: 140px;*/
+/*height: 89px;*/
+/*left: 222px;*/
+/*top: 598px;*/
+
+/*background: #F7FC01;*/
+
+
+/*!* Rectangle 5 *!*/
+
+/*position: absolute;*/
+/*width: 140px;*/
+/*height: 65px;*/
+/*left: 222px;*/
+/*top: 707px;*/
+
+/*background: #FF0B0B;*/
+
+
+/*!* Group 4 *!*/
+
+/*position: absolute;*/
+/*width: 343px;*/
+/*height: 205px;*/
+/*left: 40px;*/
+/*top: 847px;*/
+
+
+
+/*!* Rectangle 2 *!*/
+
+/*position: absolute;*/
+/*width: 343px;*/
+/*height: 205px;*/
+/*left: 40px;*/
+/*top: 847px;*/
+
+/*background: #C4C4C4;*/
+
+
+/*!* Ellipse 1 *!*/
+
+/*position: absolute;*/
+/*width: 125px;*/
+/*height: 122px;*/
+/*left: 76px;*/
+/*top: 868px;*/
+
+/*background: #1F0202;*/
+
+
+/*!* Rectangle 3 *!*/
+
+/*position: absolute;*/
+/*width: 125px;*/
+/*height: 40px;*/
+/*left: 76px;*/
+/*top: 1002px;*/
+
+/*background: #1B0F0F;*/
+
+
+/*!* Rectangle 4 *!*/
+
+/*position: absolute;*/
+/*width: 140px;*/
+/*height: 89px;*/
+/*left: 222px;*/
+/*top: 868px;*/
+
+/*background: #F7FC01;*/
+
+
+/*!* Rectangle 5 *!*/
+
+/*position: absolute;*/
+/*width: 140px;*/
+/*height: 65px;*/
+/*left: 222px;*/
+/*top: 977px;*/
+
+/*background: #FF0B0B;*/
+
+
+/*!* Group 5 *!*/
+
+/*position: absolute;*/
+/*width: 343px;*/
+/*height: 205px;*/
+/*left: 1537px;*/
+/*top: 27px;*/
+
+
+
+/*!* Rectangle 2 *!*/
+
+/*position: absolute;*/
+/*width: 343px;*/
+/*height: 205px;*/
+/*left: 1537px;*/
+/*top: 27px;*/
+
+/*background: #C4C4C4;*/
+
+
+/*!* Ellipse 1 *!*/
+
+/*position: absolute;*/
+/*width: 125px;*/
+/*height: 122px;*/
+/*left: 1573px;*/
+/*top: 48px;*/
+
+/*background: #1F0202;*/
+
+
+/*!* Rectangle 3 *!*/
+
+/*position: absolute;*/
+/*width: 125px;*/
+/*height: 40px;*/
+/*left: 1573px;*/
+/*top: 182px;*/
+
+/*background: #1B0F0F;*/
+
+
+/*!* Rectangle 4 *!*/
+
+/*position: absolute;*/
+/*width: 140px;*/
+/*height: 89px;*/
+/*left: 1719px;*/
+/*top: 48px;*/
+
+/*background: #F7FC01;*/
+/*mix-blend-mode: normal;*/
+
+
+/*!* Rectangle 5 *!*/
+
+/*position: absolute;*/
+/*width: 140px;*/
+/*height: 65px;*/
+/*left: 1719px;*/
+/*top: 157px;*/
+
+/*background: #FF0B0B;*/
+
+
+/*!* Group 7 *!*/
+
+/*position: absolute;*/
+/*width: 343px;*/
+/*height: 205px;*/
+/*left: 1537px;*/
+/*top: 577px;*/
+
+
+
+/*!* Rectangle 2 *!*/
+
+/*position: absolute;*/
+/*width: 343px;*/
+/*height: 205px;*/
+/*left: 1537px;*/
+/*top: 577px;*/
+
+/*background: #C4C4C4;*/
+
+
+/*!* Ellipse 1 *!*/
+
+/*position: absolute;*/
+/*width: 125px;*/
+/*height: 122px;*/
+/*left: 1573px;*/
+/*top: 598px;*/
+
+/*background: #1F0202;*/
+
+
+/*!* Rectangle 3 *!*/
+
+/*position: absolute;*/
+/*width: 125px;*/
+/*height: 40px;*/
+/*left: 1573px;*/
+/*top: 732px;*/
+
+/*background: #1B0F0F;*/
+
+
+/*!* Rectangle 4 *!*/
+
+/*position: absolute;*/
+/*width: 140px;*/
+/*height: 89px;*/
+/*left: 1719px;*/
+/*top: 598px;*/
+
+/*background: #F7FC01;*/
+
+
+/*!* Rectangle 5 *!*/
+
+/*position: absolute;*/
+/*width: 140px;*/
+/*height: 65px;*/
+/*left: 1719px;*/
+/*top: 707px;*/
+
+/*background: #FF0B0B;*/
+
+
+/*!* Group 8 *!*/
+
+/*position: absolute;*/
+/*width: 343px;*/
+/*height: 205px;*/
+/*left: 1537px;*/
+/*top: 847px;*/
+
+
+
+/*!* Rectangle 2 *!*/
+
+/*position: absolute;*/
+/*width: 343px;*/
+/*height: 205px;*/
+/*left: 1537px;*/
+/*top: 847px;*/
+
+/*background: #C4C4C4;*/
+
+
+/*!* Ellipse 1 *!*/
+
+/*position: absolute;*/
+/*width: 125px;*/
+/*height: 122px;*/
+/*left: 1573px;*/
+/*top: 868px;*/
+
+/*background: #1F0202;*/
+
+
+/*!* Rectangle 3 *!*/
+
+/*position: absolute;*/
+/*width: 125px;*/
+/*height: 40px;*/
+/*left: 1573px;*/
+/*top: 1002px;*/
+
+/*background: #1B0F0F;*/
+
+
+/*!* Rectangle 4 *!*/
+
+/*position: absolute;*/
+/*width: 140px;*/
+/*height: 89px;*/
+/*left: 1719px;*/
+/*top: 868px;*/
+
+/*background: #F7FC01;*/
+
+
+/*!* Rectangle 5 *!*/
+
+/*position: absolute;*/
+/*width: 140px;*/
+/*height: 65px;*/
+/*left: 1719px;*/
+/*top: 977px;*/
+
+/*background: #FF0B0B;*/
+
+
+/*!* Group 9 *!*/
+
+/*position: absolute;*/
+/*width: 1050px;*/
+/*height: 297px;*/
+/*left: 432px;*/
+/*top: 755px;*/
+
+
+
+/*!* Rectangle 6 *!*/
+
+/*position: absolute;*/
+/*width: 1050px;*/
+/*height: 297px;*/
+/*left: 432px;*/
+/*top: 755px;*/
+
+/*background: #C4C4C4;*/
+
+
+/*!* Ellipse 2 *!*/
+
+/*position: absolute;*/
+/*width: 176px;*/
+/*height: 188.71px;*/
+/*left: 482px;*/
+/*top: 788.24px;*/
+
+/*background: #FF0000;*/
+
+
+/*!* Rectangle 7 *!*/
+
+/*position: absolute;*/
+/*width: 176px;*/
+/*height: 56.83px;*/
+/*left: 482px;*/
+/*top: 989.81px;*/
+
+/*background: #FF0101;*/
+
+
+/*!* Rectangle 8 *!*/
+
+/*position: absolute;*/
+/*width: 270px;*/
+/*height: 190.85px;*/
+/*left: 1193px;*/
+/*top: 808.61px;*/
+
+/*background: #BDFF00;*/
+
+
+/*!* Rectangle 9 *!*/
+
+/*position: absolute;*/
+/*width: 488px;*/
+/*height: 138.31px;*/
+/*left: 680px;*/
+/*top: 788.24px;*/
+
+/*background: #000000;*/
+
+
+/*!* Rectangle 10 *!*/
+
+/*position: absolute;*/
+/*width: 76px;*/
+/*height: 93.28px;*/
+/*left: 698px;*/
+/*top: 810.75px;*/
+
+/*background: #C4C4C4;*/
+
+
+/*!* Rectangle 11 *!*/
+
+/*position: absolute;*/
+/*width: 76px;*/
+/*height: 93.28px;*/
+/*left: 789px;*/
+/*top: 810.75px;*/
+
+/*background: #C4C4C4;*/
+
+
+/*!* Rectangle 12 *!*/
+
+/*position: absolute;*/
+/*width: 76px;*/
+/*height: 93.28px;*/
+/*left: 884px;*/
+/*top: 810.75px;*/
+
+/*background: #C4C4C4;*/
+
+
+/*!* Rectangle 13 *!*/
+
+/*position: absolute;*/
+/*width: 76px;*/
+/*height: 93.28px;*/
+/*left: 979px;*/
+/*top: 810.75px;*/
+
+/*background: #C4C4C4;*/
+
+
+/*!* Rectangle 14 *!*/
+
+/*position: absolute;*/
+/*width: 76px;*/
+/*height: 93.28px;*/
+/*left: 1074px;*/
+/*top: 810.75px;*/
+
+/*background: #C4C4C4;*/
+
+
+/*!* Rectangle 15 *!*/
+
+/*position: absolute;*/
+/*width: 485px;*/
+/*height: 93.28px;*/
+/*left: 683px;*/
+/*top: 953.36px;*/
+
+/*background: #008F0E;*/
+
+
+/*!* Group 1 *!*/
+
+/*position: absolute;*/
+/*width: 343px;*/
+/*height: 205px;*/
+/*left: 40px;*/
+/*top: 27px;*/
+
+/*filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));*/
+
+
+/*!* Rectangle 2 *!*/
+
+/*position: absolute;*/
+/*height: 205px;*/
+/*left: 40px;*/
+/*right: 1537px;*/
+/*top: calc(50% - 205px/2 - 410.5px);*/
+
+/*background: #C4C4C4;*/
+
+
+/*!* Ellipse 1 *!*/
+
+/*position: absolute;*/
+/*height: 122px;*/
+/*left: 76px;*/
+/*right: 1719px;*/
+/*top: calc(50% - 122px/2 - 431px);*/
+
+/*background: #1F0202;*/
+/*box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);*/
+
+
+/*!* Rectangle 3 *!*/
+
+/*position: absolute;*/
+/*height: 40px;*/
+/*left: 76px;*/
+/*right: 1719px;*/
+/*top: calc(50% - 40px/2 - 338px);*/
+
+/*background: #1B0F0F;*/
+
+
+/*!* Rectangle 4 *!*/
+
+/*position: absolute;*/
+/*height: 89px;*/
+/*left: 222px;*/
+/*right: 1558px;*/
+/*top: calc(50% - 89px/2 - 447.5px);*/
+
+/*background: #F7FC01;*/
+
+
+/*!* Rectangle 5 *!*/
+
+/*position: absolute;*/
+/*height: 65px;*/
+/*left: 222px;*/
+/*right: 1558px;*/
+/*top: calc(50% - 65px/2 - 350.5px);*/
+
+/*background: #FF0B0B;*/
+
+
+/*!* Group 6 *!*/
+
+/*position: absolute;*/
+/*width: 343px;*/
+/*height: 205px;*/
+/*left: 1537px;*/
+/*top: 301px;*/
+
+
+
+/*!* Rectangle 2 *!*/
+
+/*position: absolute;*/
+/*width: 343px;*/
+/*height: 205px;*/
+/*left: 1537px;*/
+/*top: 301px;*/
+
+/*background: #C4C4C4;*/
+
+
+/*!* Ellipse 1 *!*/
+
+/*position: absolute;*/
+/*width: 125px;*/
+/*height: 122px;*/
+/*left: 1573px;*/
+/*top: 322px;*/
+
+/*background: #1F0202;*/
+
+
+/*!* Rectangle 3 *!*/
+
+/*position: absolute;*/
+/*width: 125px;*/
+/*height: 40px;*/
+/*left: 1573px;*/
+/*top: 456px;*/
+
+/*background: #1B0F0F;*/
+
+
+/*!* Rectangle 4 *!*/
+
+/*position: absolute;*/
+/*width: 140px;*/
+/*height: 89px;*/
+/*left: 1719px;*/
+/*top: 322px;*/
+
+/*background: #F7FC01;*/
+
+
+/*!* Rectangle 5 *!*/
+
+/*position: absolute;*/
+/*width: 140px;*/
+/*height: 65px;*/
+/*left: 1719px;*/
+/*top: 431px;*/
+
+/*background: #FF0B0B;*/
