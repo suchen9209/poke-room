@@ -9,8 +9,12 @@ import Background from "./components/Login/Background";
 import RegisterPanel from "./components/Login/RegisterPanel";
 import LoginPanel from "./components/Login/LoginPanel";
 import GameMain from "./components/Game/GameMain";
+import {Provider} from "react-redux";
+import {createStore} from "redux";
+import store from "./store";
 
 ReactDOM.render(
+    <Provider store={store}>
     <BrowserRouter>
         <Routes>
             <Route path="/" element={<LoginPanel />} />
@@ -18,9 +22,11 @@ ReactDOM.render(
             <Route path="register" element={<RegisterPanel />} />
             <Route path="room" element={<RoomList />} />
             <Route path="invoices" element={<RoomListPanel />} />
+            <Route path="gameRoom/:id" element={<GameMain />} />
             <Route path="gameRoom" element={<GameMain />} />
         </Routes>
     </BrowserRouter>
+    </Provider>
     ,
   document.getElementById('root')
 )

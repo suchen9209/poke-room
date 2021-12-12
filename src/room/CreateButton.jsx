@@ -5,7 +5,10 @@ import request from "../service/request";
 class CreateButton extends React.Component{
     constructor(params) {
         super(params);
+        console.log(this.props.history)
     }
+
+
 
     createRoom = () =>{
         let requestParams = {
@@ -21,6 +24,11 @@ class CreateButton extends React.Component{
             async:true
         }).then((res)=>{
             console.log(res)
+
+            if(res.data.Id > 0){
+                location.href = "/gameRoom/"+res.data.Id
+            }
+
         }).catch((err)=>{
             console.error(err)
         })
@@ -45,9 +53,7 @@ class CreateButton extends React.Component{
         )
     }
 
-
-
-
 }
+
 
 export default CreateButton

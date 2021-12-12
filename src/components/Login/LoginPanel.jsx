@@ -1,11 +1,12 @@
-import React, {Component, useEffect, useState} from 'react';
+import React, {Component, useEffect, useReducer, useState} from 'react';
 import {BrowserRouter, Link, Route, Router,  useParams,useNavigate } from 'react-router-dom';
 import axios from "axios";
-import RoomList from "../../room/RoomList";
+
+import {useDispatch, useSelector} from "react-redux";
+import {selectUser, setUser} from "../../features/user/userSlice";
 
 let uname = ''
 let password = ''
-
 
 function SetUname(e){
     uname = e.target.value
@@ -15,54 +16,24 @@ function SetPassword(e){
     password = e.target.value
 }
 
-// function loginAction(){
-//     axios({
-//         url:"user/login",
-//         method:"post",
-//         baseURL:"http://localhost:8080/v2/",
-//         params:{
-//             uname:uname,
-//             password:password
-//         },
-//         mode:"no-cors",
-//         withCredentials:true,
-//         async:true
-//     }).then(res=>{
-//         console.log(res)
-//         localStorage.UserId = res.data.Data.Id
-//         localStorage.UserName = res.data.Data.Name
-//         localStorage.Point = res.data.Data.Point
-//         // let navigate = useNavigate();
-//         // useEffect(()=>{
-//         //     navigate("/room")
-//         // })
-//     }).catch((error)=>{
-//         alert(error.message)
-//         console.log('Error', error.message);
-//     })
-// }
-
-
 function LoginPanel(){
     let navigate = useNavigate();
     const [isLogin, setLoginStatus] = useState(false);
     const [uname, setUname] = useState('');
     const [password, setPassword] = useState('');
     const [clickButton, setClick] = useState(false);
+    const dispath = useDispatch()
     useEffect(()=>{
         if (isLogin){
-            console.log('sdfsd121fsdf')
+            // console.log('sdfsd121fsdf')
         }
         return ()=>{
-            console.log('sdfsdfsdf')
+            // console.log('sdfsdfsdf')
 
         }
     },[isLogin])
 
     useEffect(()=>{
-        console.log(password)
-        console.log(clickButton)
-        console.log(uname)
         if(clickButton && uname !== '' && password !==''){
             setClick(false)
             axios({
@@ -77,15 +48,20 @@ function LoginPanel(){
                 withCredentials:true,
                 async:true
             }).then(res=>{
-                console.log(res)
+                // console.log(res)
                 localStorage.UserId = res.Data.Id
                 localStorage.UserName = res.Data.Name
                 localStorage.Point = res.Data.Point
-
+                let tmpUser = {
+                    name : res.Data.Name,
+                    point : res.Data.Point,
+                    avatar : '/img/tou.png',
+                    userId : res.Data.Id
+                }
+                dispath(setUser(tmpUser))
+                // console.log(user.getState())
                 setLoginStatus(true)
-                // useEffect(()=>{
                 navigate("/room")
-                // })
             }).catch((error)=>{
                 alert(error.message)
                 console.log('Error', error.message);
@@ -138,16 +114,3 @@ function LoginPanel(){
 
 }
 export default LoginPanel
-// function LoginPanel(){
-//     // let navigate = useNavigate();
-//     // useEffect(()=>{
-//     //     navigate("/room")
-//     // })
-//
-//
-//
-//     return (
-//
-//     )
-//
-// }

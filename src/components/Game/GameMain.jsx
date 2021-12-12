@@ -1,11 +1,18 @@
 import './GameMain.css'
 import React from "react";
+import {useParams} from "react-router";
 
-class GameMain extends React.Component{
-    constructor(params) {
-        super(params);
+// class GameMain extends React.Component{
+function GameMain(){
+    let { id } = useParams();
+
+    const ws = new WebSocket('ws://localhost:8080/v2/room/join/'+id);
+    ws.onmessage =  (event)=> {
+        console.log(event)
     }
-    render() {
+
+
+    // render() {
         return (
             <div className="MainPanel">
                 <div className="ShowPanel" />
@@ -77,7 +84,7 @@ class GameMain extends React.Component{
                 </div>
             </div>
         )
-    }
+    // }
 
 
 }

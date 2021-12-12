@@ -1,76 +1,53 @@
 import React, {useState} from "react";
 import axios from "axios";
 import request from "../service/request";
+import {useSelector} from "react-redux";
+import {selectUser} from "../features/user/userSlice";
 
-class AvatarPanel extends React.Component{
-    constructor(params) {
-        super(params);
-        this.state = {
-            username:"",
-            point : 0
-        }
-        console.log(this.props.data)
 
-    }
-
-    componentDidMount() {
-        setTimeout(()=>{
-                request({
-                    url:"user/info",
-                    method:"post",
-                    params:{
-                    },
-                    mode:"no-cors",
-                    withCredentials:true,
-                    async:true
-                }).then(res=>{
-                    console.log(res)
-                    this.setState({
-                        username:res.data.Data.Name,
-                        point:res.data.Data.Point
-                    })
-                })
-        },1000
-
-        )
-
-    }
-
-    render(){
-        return (
-            <div>
-                <div className="Avatar-panel">
-                    <div className="User-name-span">
-                        {this.state.username}
-                        {/*{this.props.data.username}*/}
-                    </div>
+function AvatarPanel(){
+    const nowUser = useSelector(selectUser).userInfo
+    return (
+        <div>
+            <div className="Avatar-panel">
+                <div className="User-name-span">
+                    {nowUser.name}
+                    {/*{this.props.data.username}*/}
                 </div>
-                <LinePanel point={this.state.point}/>
             </div>
-        )
-    }
-
+            <LinePanel />
+        </div>
+    )
 }
-function LinePanel(data){
-    const nowPoint = "当前积分："+data.point
+function LinePanel(){
+    // const nowUser = useSelector((state)=>state.user.userInfo)
+    const nowUser = useSelector(selectUser).userInfo
+    console.log(nowUser)
+    const nowPoint = "当前积分："+nowUser.point
     const nowLevel = "当前等级：狠之间"
     const nowStatus = "黑河"
     return (
         <div>
-            <LineItem className="Line1-panel" text={nowPoint} />
-            <LineItem className="Line2-panel" text={nowLevel} />
-            <LineItem className="Line3-panel" text={nowStatus} />
+            <LineItem cn="Line1-panel" text={nowPoint} />
+            <LineItem cn="Line2-panel" text={nowLevel} />
+            <LineItem cn="Line3-panel" text={nowStatus} />
         </div>
     )
 }
 
-class LineItem extends React.Component {
+// class LineItem extends React.Component {
+//
+//     render() {
+//         return (
+//             <div className={this.props.className}>{this.props.text}</div>
+//         );
+//     }
+// }
 
-    render() {
-        return (
-            <div className={this.props.className}>{this.props.text}</div>
-        );
-    }
+function LineItem(data) {
+    return (
+        <div className={data.cn}>{data.text}</div>
+    );
 }
 
 
