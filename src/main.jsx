@@ -15,7 +15,7 @@ import store from "./store";
 import {saveUserState} from "./features/user/localStorage";
 
 store.subscribe(()=>{
-    saveUserState({user:store.getState().user})
+    saveUserState(store.getState().user)
 })
 
 ReactDOM.render(
