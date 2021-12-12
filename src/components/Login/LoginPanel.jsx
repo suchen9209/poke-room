@@ -49,9 +49,6 @@ function LoginPanel(){
                 async:true
             }).then(res=>{
                 // console.log(res)
-                localStorage.UserId = res.Data.Id
-                localStorage.UserName = res.Data.Name
-                localStorage.Point = res.Data.Point
                 let tmpUser = {
                     name : res.Data.Name,
                     point : res.Data.Point,

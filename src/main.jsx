@@ -12,6 +12,11 @@ import GameMain from "./components/Game/GameMain";
 import {Provider} from "react-redux";
 import {createStore} from "redux";
 import store from "./store";
+import {saveUserState} from "./features/user/localStorage";
+
+store.subscribe(()=>{
+    saveUserState({user:store.getState().user})
+})
 
 ReactDOM.render(
     <Provider store={store}>
