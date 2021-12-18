@@ -1,6 +1,14 @@
 import './GameMain.css'
 import React from "react";
 import {useParams} from "react-router";
+import UserNameAndAvatar from "./NowUser/UserNameAndAvatar";
+import GameUser from "./GameUser/GameUser";
+import RaiseOperation from "./GameUser/RaiseOperation";
+import CallOperation from "./GameUser/CallOperation";
+import CheckOperation from "./GameUser/CheckOperation";
+import FoldOperation from "./GameUser/FoldOperation";
+import AllInOperation from "./GameUser/AllInOperation";
+import Card from "../Card/Card";
 
 // class GameMain extends React.Component{
 function GameMain(){
@@ -18,69 +26,48 @@ function GameMain(){
                 <div className="ShowPanel" />
 
                 <div className="UserPanel" >
-                    <div className="UserAvatar" />
-                    <div className="UserName" />
+                    <UserNameAndAvatar/>
                     <div className="UserOperationList">
-                        <div className="UserOperationItem" />
-                        <div className="UserOperationItem" />
-                        <div className="UserOperationItem" />
-                        <div className="UserOperationItem" />
-                        <div className="UserOperationItem" />
+                        <RaiseOperation />
+                        <CallOperation />
+                        <CheckOperation />
+                        <FoldOperation />
+                        <AllInOperation />
                     </div>
                     <div className="UserInfo" />
                     <div className="UserCard" >
-                        <div className="UserCardItem"/>
-                        <div className="UserCardItem"/>
+                        <div className="UserCardItem">
+                            <Card color="diamond" value="14" />
+                        </div>
+                        <div className="UserCardItem">
+                            <Card color="diamond" value="14" />
+                        </div>
                    </div>
                 </div>
 
                 <div className="Position1">
-                    <div className="PanelAvatar"/>
-                    <div className="PanelName"/>
-                    <div className="PanelCard"/>
-                    <div className="PanelPoint"/>
+                    <GameUser position={1} />
                 </div>
                 <div className="Position2">
-                    <div className="PanelAvatar"/>
-                    <div className="PanelName"/>
-                    <div className="PanelCard"/>
-                    <div className="PanelPoint"/>
+                    <GameUser position={2} />
                 </div>
                 <div className="Position3">
-                    <div className="PanelAvatar"/>
-                    <div className="PanelName"/>
-                    <div className="PanelCard"/>
-                    <div className="PanelPoint"/>
+                    <GameUser position={3} />
                 </div>
                 <div className="Position4">
-                    <div className="PanelAvatar"/>
-                    <div className="PanelName"/>
-                    <div className="PanelCard"/>
-                    <div className="PanelPoint"/>
+                    <GameUser position={4} />
                 </div>
                 <div className="Position5">
-                    <div className="PanelAvatar"/>
-                    <div className="PanelName"/>
-                    <div className="PanelCard"/>
-                    <div className="PanelPoint"/>
+                    <GameUser position={5} />
                 </div>
                 <div className="Position6">
-                    <div className="PanelAvatar"/>
-                    <div className="PanelName"/>
-                    <div className="PanelCard"/>
-                    <div className="PanelPoint"/>
+                    <GameUser position={6} />
                 </div>
                 <div className="Position7">
-                    <div className="PanelAvatar"/>
-                    <div className="PanelName"/>
-                    <div className="PanelCard"/>
-                    <div className="PanelPoint"/>
+                    <GameUser position={7} />
                 </div>
                 <div className="Position8">
-                    <div className="PanelAvatar"/>
-                    <div className="PanelName"/>
-                    <div className="PanelCard"/>
-                    <div className="PanelPoint"/>
+                    <GameUser position={8} />
                 </div>
             </div>
         )
