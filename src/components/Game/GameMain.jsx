@@ -9,6 +9,7 @@ import CheckOperation from "./GameUser/CheckOperation";
 import FoldOperation from "./GameUser/FoldOperation";
 import AllInOperation from "./GameUser/AllInOperation";
 import Card from "../Card/Card";
+import ShowPanel from "./ShowPanel/ShowPanel";
 
 // class GameMain extends React.Component{
 function GameMain(){
@@ -23,7 +24,7 @@ function GameMain(){
     // render() {
         return (
             <div className="MainPanel">
-                <div className="ShowPanel" />
+                <ShowPanel/>
 
                 <div className="UserPanel" >
                     <UserNameAndAvatar/>

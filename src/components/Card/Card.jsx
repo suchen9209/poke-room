@@ -23,6 +23,10 @@ function Card(data){
     if(data.value === '14'){
         num = 'A'
     }
+    if(data.value === '0'){
+        num = ''
+        show_str = ''
+    }
 
     return (
         <div>
@@ -30,7 +34,7 @@ function Card(data){
                 <div className={class_name} />
             </div>
             <div style={{"display":"inline-block"}}>
-                {show_str} {num}
+                {/*{show_str} {num}*/}
             </div>
         </div>
 

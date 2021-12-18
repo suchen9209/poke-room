@@ -92,10 +92,8 @@
     width: 100px;
     left: 30px;
     /* right: 1718px; */
-    background: black;
+    /*background: black;*/
     top: 17px;
-
-
 }
 .PanelName{
     position: relative;
@@ -104,7 +102,10 @@
     left: 21px;
     right: 1719px;
     top: 40px;
+    color: white;
     background: #1B0F0F;
+    line-height: 40px;
+    font-size: 22px;
 }
 
 .PanelCard{
@@ -165,7 +166,6 @@
     height: 144px;
     left: 246px;
     top: -200px;
-    top: -200px;
 }
 
 .UserOperationItem{
@@ -175,6 +175,27 @@
     background: #C4C4C4;
     margin: 23px 11px 10px 10px;
     position: relative;
+    cursor: pointer;
+}
+
+.UserOperationPanel{
+    top: 56%;
+    position: fixed;
+    background: #07a8b1;
+    width: 465px;
+    height: 231px;
+    z-index: 5;
+    display: none;
+}
+
+.RaiseButton{
+    display: inline-block;
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 25px;
+    background: aquamarine;
+    margin: 2px;
 }
 
 .UserInfo{
@@ -203,6 +224,12 @@
     display: inline-block;
     margin: 20px 11px 8px 10px;
 }
+
+.CardListLine{
+    height: 200px;
+    width: 100%;
+}
+
 
 
 
