@@ -6,9 +6,8 @@ function GameUser(data){
 
     const nowGameUserList = useSelector(getGameUserList)
     const positionUser = nowGameUserList[data.position]
-    console.log(positionUser)
+    // console.log(positionUser)
 
-    // console.log(data.position)
 
     if (JSON.stringify(positionUser) === "{}"){
         return (

@@ -1,5 +1,5 @@
 import './GameMain.css'
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {useParams} from "react-router";
 import UserNameAndAvatar from "./NowUser/UserNameAndAvatar";
 import GameUser from "./GameUser/GameUser";
@@ -13,13 +13,22 @@ import ShowPanel from "./ShowPanel/ShowPanel";
 import {selectUser, setUser} from "../../features/user/userSlice";
 import {useDispatch, useSelector} from "react-redux";
 import {setGameUser} from "../../features/GameUser/GameUserListSlice";
+import GameOperationPanel from "./ShowPanel/GameOperationPanel";
+// import { connect } from '@giantmachines/redux-websocket';
+import {clearOperation, getOperation} from "../../features/GameProcess/UserOperation";
+
+let ws = {}
 
 // class GameMain extends React.Component{
 function GameMain(){
     let { id } = useParams();
-    const dispath = useDispatch()
+    ws = new WebSocket('ws://localhost:8080/v2/room/join/'+id);
 
-    const ws = new WebSocket('ws://localhost:8080/v2/room/join/'+id);
+    const dispatch = useDispatch()
+
+    // dispatch(connect('ws://localhost:8080/v2/room/join/'+id))
+
+    // const ws = new WebSocket('ws://localhost:8080/v2/room/join/'+id);
     const nowUser = useSelector(selectUser)
     ws.onmessage =  (event)=> {
         let data = event.data
@@ -35,23 +44,43 @@ function GameMain(){
                 let userList = json_data.Info
                 console.log(userList)
                 for (const userListKey in userList) {
-                    dispath(setGameUser(userList[userListKey]))
+                    dispatch(setGameUser(userList[userListKey]))
                 }
                 //User Info
-
-
                 break;
             default:
                 break;
         }
     }
 
+    ws.onopen = (event) =>{
+        // dispatch(setWebSocketConnection(ws))
+    }
+    ws.onclose = () => {
+        // dispatch(closeWebSocketConnection)
+    }
+
+    let operation = useSelector(getOperation)
+    useEffect(()=>{
+        try {
+            console.log(operation)
+            if(operation.type !== ""){
+                sendMsg(operation)
+                dispatch(clearOperation())
+            }
+        }catch (e){
+            console.log(e)
+        }
+
+    },[operation])
+
+
 
     // render() {
         return (
             <div className="MainPanel">
+                <GameOperationPanel />
                 <ShowPanel/>
-
                 <div className="UserPanel" >
                     <UserNameAndAvatar/>
                     <div className="UserOperationList">
@@ -102,6 +131,18 @@ function GameMain(){
         )
     // }
 
+
+}
+
+export function sendMsg(type,point,operation,msg){
+    let tmpObj = {
+        Type:type,
+        Point:point,
+        Operation:operation,
+        Message:msg
+    }
+    console.log(tmpObj)
+    ws.send(JSON.stringify(tmpObj))
 
 }
 
