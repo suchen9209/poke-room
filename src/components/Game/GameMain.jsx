@@ -16,6 +16,7 @@ import {setGameUser} from "../../features/GameUser/GameUserListSlice";
 import GameOperationPanel from "./ShowPanel/GameOperationPanel";
 // import { connect } from '@giantmachines/redux-websocket';
 import {clearOperation, getOperation} from "../../features/GameProcess/UserOperation";
+import {Link} from "react-router-dom";
 
 let ws = {}
 
@@ -25,6 +26,9 @@ function GameMain(){
     ws = new WebSocket('ws://localhost:8080/v2/room/join/'+id);
 
     const dispatch = useDispatch()
+    let cardNumber = 0
+    const [card1, setCard1] = useState({Color:"",value:0});
+    const [card2, setCard2] = useState({Color:"",value:0});
 
     // dispatch(connect('ws://localhost:8080/v2/room/join/'+id))
 
@@ -40,9 +44,23 @@ function GameMain(){
                 break;
             case 1:
                 break;
+            case 3:
+                cardNumber ++
+                if(cardNumber === 1){
+                    setCard1(json_data.Card)
+                    console.log(json_data.Card)
+                }else{
+                    setCard2(json_data.Card)
+                    console.log(json_data.Card)
+                    console.log(card1)
+                }
+                if(cardNumber >= 2){
+                    cardNumber = 0
+                }
+                break;
             case 6:
                 let userList = json_data.Info
-                console.log(userList)
+                // console.log(userList)
                 for (const userListKey in userList) {
                     dispatch(setGameUser(userList[userListKey]))
                 }
@@ -59,22 +77,6 @@ function GameMain(){
     ws.onclose = () => {
         // dispatch(closeWebSocketConnection)
     }
-
-    let operation = useSelector(getOperation)
-    useEffect(()=>{
-        try {
-            console.log(operation)
-            if(operation.type !== ""){
-                sendMsg(operation)
-                dispatch(clearOperation())
-            }
-        }catch (e){
-            console.log(e)
-        }
-
-    },[operation])
-
-
 
     // render() {
         return (
@@ -95,10 +97,10 @@ function GameMain(){
                     </div>
                     <div className="UserCard" >
                         <div className="UserCardItem">
-                            <Card color="diamond" value="14" />
+                            <Card color={card1.Color} value={card1.Value} />
                         </div>
                         <div className="UserCardItem">
-                            <Card color="diamond" value="14" />
+                            <Card color={card2.Color} value={card2.Value} />
                         </div>
                    </div>
                 </div>

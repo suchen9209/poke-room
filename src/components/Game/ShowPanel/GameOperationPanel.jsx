@@ -21,14 +21,11 @@ function GameOperationPanel(data){
         }
     },[gameProcess.nowStatus])
 
-
-
-
     return (
         <div className="GameOperationPanel" style={isShow ? {'display':'block'} : {'display':'none'}}>
             <div className="GameOperationButton" onClick={(event=>{
                 setShow(false)
-                sendMsg("game_op",0,"raise","start")
+                sendMsg("game_op",0,"","start")
             })}>
                 <img src="/img/start.png"/>
             </div>
