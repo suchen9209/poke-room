@@ -8,11 +8,13 @@ function RaiseOperation(){
         <div className="UserOperationItem">
             <div onClick={(event => setShow(true))} >
                 <img width="60px" height="60px"src="/img/raise.png" />
-                <span style={{"font-size":"19px"}}>多少加点</span>
+                <span style={{fontSize:"19px"}}>多少加点</span>
             </div>
             <div className="UserOperationPanel" style={isShow ? {'display':'block'} : {'display':'none'}}>
-                <span style={{"font-size":"30px"}}>投入积分：</span>
-                <div style={{"margin-left": "20px", "width": "550px","margin-top":"30px", "margin-bottom": "30px"}}><IntegerStep /></div>
+                <span style={{fontSize:"30px"}}>投入积分：</span>
+                <div style={{marginLeft: "20px", width: "550px",marginTop:"30px", marginBottom: "30px"}}>
+                    <IntegerStep />
+                </div>
                 <div>
                     <div className="RaiseButton" onClick={(event=>setShow(false))}>确认</div>
                     <div className="RaiseButton" onClick={(event=>setShow(false))}>算了</div>

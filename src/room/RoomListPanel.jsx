@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
 import request from "../service/request";
+import {Link} from "react-router-dom";
 
 function RoomListPanel() {
 
@@ -44,7 +45,9 @@ function RoomListPanel() {
     },[refresh])
 
     let listItem_1 = roomListData.map((item, key) => {
+        let link = '/gameRoom/' + item.Id
         return (
+            <Link to={link}>
             <div style={roomLine}>
                 <span style={column_1}>{item.Id}</span>
                 <span style={column_2}>{item.RoomName}</span>
@@ -52,6 +55,7 @@ function RoomListPanel() {
                 <span style={column_4}>8</span>
                 <span style={column_5}>DOING</span>
             </div>
+            </Link>
         )
     })
 

@@ -125,7 +125,12 @@
     width: 164px;
     right: 1558px;
     top: -104px;
-    background: #FF0B0B;
+    font-size: 30px;
+    line-height: 65px;
+    background-image: url("/img/point_bg.png");
+    /*background: #FF0B0B;*/
+    text-align: right;
+    font-family: fantasy;
 
 }
 

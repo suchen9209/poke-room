@@ -10,14 +10,40 @@ import FoldOperation from "./GameUser/FoldOperation";
 import AllInOperation from "./GameUser/AllInOperation";
 import Card from "../Card/Card";
 import ShowPanel from "./ShowPanel/ShowPanel";
+import {selectUser, setUser} from "../../features/user/userSlice";
+import {useDispatch, useSelector} from "react-redux";
+import {setGameUser} from "../../features/GameUser/GameUserListSlice";
 
 // class GameMain extends React.Component{
 function GameMain(){
     let { id } = useParams();
+    const dispath = useDispatch()
 
     const ws = new WebSocket('ws://localhost:8080/v2/room/join/'+id);
+    const nowUser = useSelector(selectUser)
     ws.onmessage =  (event)=> {
-        console.log(event)
+        let data = event.data
+        let json_data =JSON.parse(data)
+        console.log(json_data)
+        switch (json_data.Type){
+            case 0:
+                // console.log(json_data)
+                break;
+            case 1:
+                break;
+            case 6:
+                let userList = json_data.Info
+                console.log(userList)
+                for (const userListKey in userList) {
+                    dispath(setGameUser(userList[userListKey]))
+                }
+                //User Info
+
+
+                break;
+            default:
+                break;
+        }
     }
 
 
@@ -35,7 +61,9 @@ function GameMain(){
                         <FoldOperation />
                         <AllInOperation />
                     </div>
-                    <div className="UserInfo" />
+                    <div className="UserInfo" >
+                        {nowUser.userInfo.point}
+                    </div>
                     <div className="UserCard" >
                         <div className="UserCardItem">
                             <Card color="diamond" value="14" />

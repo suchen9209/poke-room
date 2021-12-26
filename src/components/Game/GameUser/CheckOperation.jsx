@@ -3,7 +3,7 @@ function CheckOperation(){
         <div className="UserOperationItem">
             <div>
                 <img width="60px" height="60px"src="/img/check.png" />
-                <span style={{"font-size":"19px"}}>看看</span>
+                <span style={{fontSize:"19px"}}>看看</span>
             </div>
         </div>
     )

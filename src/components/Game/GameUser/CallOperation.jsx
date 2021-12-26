@@ -3,7 +3,7 @@ function CallOperation(){
         <div className="UserOperationItem">
             <div>
                 <img width="60px" height="60px"src="/img/call.png" />
-                <span style={{"font-size":"19px"}}>跟</span>
+                <span style={{fontSize:"19px"}}>跟</span>
             </div>
         </div>
     )

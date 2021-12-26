@@ -14,9 +14,9 @@ export const slice = createSlice({
         clearUser: state => {
             state.userInfo ={
                 name:'You',
-                    point:0,
-                    userId:0,
-                    avatar:'/img/tou.png'
+                point:0,
+                userId:0,
+                avatar:'/img/tou.png'
             }
         }
     }
