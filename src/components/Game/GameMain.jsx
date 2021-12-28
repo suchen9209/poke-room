@@ -17,6 +17,7 @@ import GameOperationPanel from "./ShowPanel/GameOperationPanel";
 // import { connect } from '@giantmachines/redux-websocket';
 import {clearOperation, getOperation} from "../../features/GameProcess/UserOperation";
 import {Link} from "react-router-dom";
+import {setNowPosition} from "../../features/GameProcess/GameProcess";
 
 let ws = {}
 
@@ -29,6 +30,13 @@ function GameMain(){
     let cardNumber = 0
     const [card1, setCard1] = useState({Color:"",value:0});
     const [card2, setCard2] = useState({Color:"",value:0});
+    const [publicCard, setPublicCard] = useState([
+        {"Color":"","Value":"0"},
+        {"Color":"","Value":"0"},
+        {"Color":"","Value":"0"},
+        {"Color":"","Value":"0"},
+        {"Color":"","Value":"0"},
+    ]);
 
     // dispatch(connect('ws://localhost:8080/v2/room/join/'+id))
 
@@ -58,6 +66,13 @@ function GameMain(){
                     cardNumber = 0
                 }
                 break;
+            case 4:
+                break;
+            case 5:
+                let tmpPublicCard = publicCard
+                tmpPublicCard.push(json_data.Card)
+                setPublicCard(tmpPublicCard)
+                break;
             case 6:
                 let userList = json_data.Info
                 // console.log(userList)
@@ -66,10 +81,17 @@ function GameMain(){
                 }
                 //User Info
                 break;
+            case 7:
+                dispatch(setNowPosition(json_data.NowPosition))
+                break;
+            case 8:
+                console.log(json_data)
+                break;
             default:
                 break;
         }
     }
+
 
     ws.onopen = (event) =>{
         // dispatch(setWebSocketConnection(ws))
@@ -82,7 +104,7 @@ function GameMain(){
         return (
             <div className="MainPanel">
                 <GameOperationPanel />
-                <ShowPanel/>
+                <ShowPanel publicCard={publicCard}/>
                 <div className="UserPanel" >
                     <UserNameAndAvatar/>
                     <div className="UserOperationList">

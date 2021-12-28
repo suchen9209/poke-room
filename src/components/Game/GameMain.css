@@ -95,6 +95,30 @@
     /*background: black;*/
     top: 17px;
 }
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+.rotatePic{
+    -webkit-transform:rotate(360deg);
+    transform:rotate(360deg);
+    /*-webkit-transition:-webkit-transform 1s linear;*/
+    /*transition:transform 1s linear;*/
+    -webkit-animation: spin 1s linear 1s 5 alternate;
+    animation: spin 1s linear infinite;
+}
 .PanelName{
     position: relative;
     height: 40px;

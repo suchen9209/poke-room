@@ -1,12 +1,18 @@
 import React from "react";
 import {useSelector} from "react-redux";
 import {getGameUserList} from "../../../features/GameUser/GameUserListSlice";
+import {getGameProcess} from "../../../features/GameProcess/GameProcess";
 
 function GameUser(data){
 
     const nowGameUserList = useSelector(getGameUserList)
+    const nowGame = useSelector(getGameProcess)
     const positionUser = nowGameUserList[data.position]
     // console.log(positionUser)
+    let roName = "";
+    if(nowGame.nowPosition === data.position){
+        roName = "rotatePic"
+    }
 
 
     if (JSON.stringify(positionUser) === "{}"){
@@ -19,7 +25,7 @@ function GameUser(data){
         return (
             <div>
                 <div className="PanelAvatar">
-                    <img width="100px" height="100px" src="/img/shui.png" />
+                    <img className={roName} width="100px" height="100px" src="/img/shui.png" />
                 </div>
                 <div className="PanelName">
                     {positionUser.Name}
