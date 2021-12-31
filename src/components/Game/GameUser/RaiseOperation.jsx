@@ -1,13 +1,14 @@
 import {useState} from "react";
 import IntegerStep from "./NumberIn";
-import {useDispatch} from "react-redux";
-import {setOperation} from "../../../features/GameProcess/UserOperation";
+import {useDispatch, useSelector} from "react-redux";
+import {getOperation, setOperation} from "../../../features/GameProcess/UserOperation";
 import {sendMsg} from "../GameMain";
 
 function RaiseOperation(){
 
     const [isShow, setShow] = useState(false);
     const dispatch = useDispatch()
+    const op = useSelector(getOperation)
     return (
         <div className="UserOperationItem">
             <div onClick={(event => setShow(true))} >
@@ -21,7 +22,7 @@ function RaiseOperation(){
                 </div>
                 <div>
                     <div className="RaiseButton" onClick={(event)=>{
-                        sendMsg("user_op",100,"raise","")
+                        sendMsg("user_op",op.point,"raise","")
                         setShow(false)
                     }}>确认</div>
                     <div className="RaiseButton" onClick={(event=>setShow(false))}>算了</div>

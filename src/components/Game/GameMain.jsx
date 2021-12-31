@@ -28,6 +28,7 @@ function GameMain(){
 
     const dispatch = useDispatch()
     let cardNumber = 0
+    let publicCardNumber = 0
     const [card1, setCard1] = useState({Color:"",value:0});
     const [card2, setCard2] = useState({Color:"",value:0});
     const [publicCard, setPublicCard] = useState([
@@ -67,10 +68,20 @@ function GameMain(){
                 }
                 break;
             case 4:
+                let tmpCards = publicCard
+                tmpCards[publicCardNumber] = json_data.Card
+                setPublicCard(tmpCards)
+                publicCardNumber ++
                 break;
             case 5:
-                let tmpPublicCard = publicCard
-                tmpPublicCard.push(json_data.Card)
+                let tmpPublicCard = [
+                    {"Color":"","Value":"0"},
+                    {"Color":"","Value":"0"},
+                    {"Color":"","Value":"0"},
+                    {"Color":"","Value":"0"},
+                    {"Color":"","Value":"0"},
+                ]
+                publicCardNumber = 0
                 setPublicCard(tmpPublicCard)
                 break;
             case 6:
