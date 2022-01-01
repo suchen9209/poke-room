@@ -17,7 +17,8 @@ import GameOperationPanel from "./ShowPanel/GameOperationPanel";
 // import { connect } from '@giantmachines/redux-websocket';
 import {clearOperation, getOperation} from "../../features/GameProcess/UserOperation";
 import {Link} from "react-router-dom";
-import {setNowPosition} from "../../features/GameProcess/GameProcess";
+import {setNowPosition, setGameStatus, setAllPointInRound, setGameMatchDetal, setNowUserDetail} from "../../features/GameProcess/GameProcess";
+import FullScreenTip from './ShowPanel/FullScreenTip';
 
 let ws = {}
 
@@ -48,7 +49,9 @@ function GameMain(){
         let json_data =JSON.parse(data)
         console.log(json_data)
         switch (json_data.Type){
+            //
             case 0:
+                dispatch(setGameStatus(json_data.gameInfo))
                 // console.log(json_data)
                 break;
             case 1:
@@ -94,6 +97,10 @@ function GameMain(){
                 break;
             case 7:
                 dispatch(setNowPosition(json_data.NowPosition))
+                dispatch(setMaxPoint(json_data.MaxPoint))
+                dispatch(setAllPointInRound(json_data.AllPointInRound))
+                dispatch(setGameMatchDetal(json_data.GM))
+                dispatch(setNowUserDetail(json_data.Detail))
                 break;
             case 8:
                 console.log(json_data)
@@ -114,6 +121,7 @@ function GameMain(){
     // render() {
         return (
             <div className="MainPanel">
+                <FullScreenTip />
                 <GameOperationPanel />
                 <ShowPanel publicCard={publicCard}/>
                 <div className="UserPanel" >
@@ -126,7 +134,7 @@ function GameMain(){
                         <AllInOperation />
                     </div>
                     <div className="UserInfo" >
-                        {nowUser.userInfo.point}
+                        {nowUser.point}
                     </div>
                     <div className="UserCard" >
                         <div className="UserCardItem">

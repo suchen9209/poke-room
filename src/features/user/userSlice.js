@@ -9,14 +9,15 @@ export const slice = createSlice({
     initialState:persistedUser,
     reducers:{
         setUser:(state,action) => {
-            state.userInfo = action.payload
+            state = action.payload
         },
         clearUser: state => {
-            state.userInfo ={
+            state ={
                 name:'You',
                 point:0,
                 userId:0,
-                avatar:'/img/tou.png'
+                avatar:'/img/tou.png',
+                position:0
             }
         }
     }

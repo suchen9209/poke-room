@@ -6,6 +6,10 @@ export const slice = createSlice({
         nowStatus:"online",
         nowUserNumber:1,
         nowPosition:1,
+        maxPoint:0,
+        allPointInRound:0,
+        gameMatchDetail:{},
+        nowUserDetail:{}
     },
     reducers:{
         setGameStatus:(state,action) => {
@@ -16,11 +20,23 @@ export const slice = createSlice({
         },
         setGameUserNumber:(state,action)=>{
             state.nowUserNumber = action.payload
+        },
+        setMaxPoint:(state,action)=>{
+            state.maxPoint = action.payload
+        },
+        setAllPointInRound:(state,action)=>{
+            state.allPointInRound = action.payload
+        },
+        setGameMatchDetal:(state,action)=>{
+            state.gameMatchDetail = action.payload
+        },
+        setNowUserDetail:(state,action)=>{
+            state.nowUserDetail = action.payload
         }
     }
 })
 
-export const { setGameStatus,setGameUserNumber,setNowPosition} = slice.actions
+export const { setGameStatus,setGameUserNumber,setNowPosition,setMaxPoint,setAllPointInRound,setGameMatchDetal,setNowUserDetail} = slice.actions
 
 // export const getGameUserList = (state)=>state.gameUserList
 export const getGameProcess = (state)=>state.gameProcess

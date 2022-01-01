@@ -1,6 +1,8 @@
 import React from "react";
 import Card from "../../Card/Card";
 import {Link} from "react-router-dom";
+import { useSelector } from "react-redux";
+import { getGameProcess } from "../../../features/GameProcess/GameProcess";
 
 function ShowPanel(data){
     console.log(data)
@@ -13,13 +15,15 @@ function ShowPanel(data){
         )
     })
 
+    const nowGameProcess = useSelector(getGameProcess)
+
     return (
         <div className="ShowPanel">
             <div className="CardListLine">
                 {cardList}
             </div>
             <div>
-                It's Turn to Suchot
+                It's Turn to {nowGameProcess.nowPosition}
             </div>
         </div>
     )

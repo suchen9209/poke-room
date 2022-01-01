@@ -6,7 +6,8 @@ export const loadUserState = () =>{
                 name:'You',
                 point:0,
                 userId:0,
-                avatar:'/img/tou.png'
+                avatar:'/img/tou.png',
+                position:0
             }
         }
         return JSON.parse(serializedUserState)
@@ -15,7 +16,8 @@ export const loadUserState = () =>{
             name:'You',
             point:0,
             userId:0,
-            avatar:'/img/tou.png'
+            avatar:'/img/tou.png',
+            position:0
         }
     }
 }

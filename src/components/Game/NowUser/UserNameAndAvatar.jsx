@@ -8,10 +8,10 @@ function UserNameAndAvatar(){
     return (
         <div>
             <div className="UserAvatar" >
-                <img width="176px" height="176px" src={nowUser.userInfo.avatar} alt={nowUser.userInfo.name}/>
+                <img width="176px" height="176px" src={nowUser.avatar} alt={nowUser.name}/>
             </div>
             <div className="UserName" >
-                {nowUser.userInfo.name}
+                {nowUser.name}
             </div>
         </div>
 
