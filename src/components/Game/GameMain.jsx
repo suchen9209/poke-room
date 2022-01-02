@@ -17,8 +17,10 @@ import GameOperationPanel from "./ShowPanel/GameOperationPanel";
 // import { connect } from '@giantmachines/redux-websocket';
 import {clearOperation, getOperation} from "../../features/GameProcess/UserOperation";
 import {Link} from "react-router-dom";
-import {setNowPosition, setGameStatus, setAllPointInRound, setGameMatchDetal, setNowUserDetail} from "../../features/GameProcess/GameProcess";
+import {setNowPosition, setGameStatus, setAllPointInRound, setGameMatchDetal, setNowUserDetail, addUserOperationIntoShowList} from "../../features/GameProcess/GameProcess";
 import FullScreenTip from './ShowPanel/FullScreenTip';
+import { setGameUserOperationList } from '../../features/GameUser/GameUserLastOperation';
+// import GoldFlyShow from './ShowPanel/GoldFlyShow';
 
 let ws = {}
 
@@ -30,14 +32,15 @@ function GameMain(){
     const dispatch = useDispatch()
     let cardNumber = 0
     let publicCardNumber = 0
-    const [card1, setCard1] = useState({Color:"",value:0});
-    const [card2, setCard2] = useState({Color:"",value:0});
+    const emptyCard = {Color:"",value:0}
+    const [card1, setCard1] = useState(emptyCard);
+    const [card2, setCard2] = useState(emptyCard);
     const [publicCard, setPublicCard] = useState([
-        {"Color":"","Value":"0"},
-        {"Color":"","Value":"0"},
-        {"Color":"","Value":"0"},
-        {"Color":"","Value":"0"},
-        {"Color":"","Value":"0"},
+        emptyCard,
+        emptyCard,
+        emptyCard,
+        emptyCard,
+        emptyCard,
     ]);
 
     // dispatch(connect('ws://localhost:8080/v2/room/join/'+id))
@@ -51,12 +54,15 @@ function GameMain(){
         switch (json_data.Type){
             //
             case 0:
+                // JOIN
+                //You joined the chat room.
                 dispatch(setGameStatus(json_data.gameInfo))
                 // console.log(json_data)
                 break;
             case 1:
                 break;
             case 3:
+                //发牌
                 cardNumber ++
                 if(cardNumber === 1){
                     setCard1(json_data.Card)
@@ -71,23 +77,28 @@ function GameMain(){
                 }
                 break;
             case 4:
+                //公共牌
                 let tmpCards = publicCard
                 tmpCards[publicCardNumber] = json_data.Card
                 setPublicCard(tmpCards)
                 publicCardNumber ++
                 break;
             case 5:
+                //清理场面上的牌
                 let tmpPublicCard = [
-                    {"Color":"","Value":"0"},
-                    {"Color":"","Value":"0"},
-                    {"Color":"","Value":"0"},
-                    {"Color":"","Value":"0"},
-                    {"Color":"","Value":"0"},
+                    emptyCard,
+                    emptyCard,
+                    emptyCard,
+                    emptyCard,
+                    emptyCard,
                 ]
                 publicCardNumber = 0
+                setCard1(emptyCard)
+                setCard2(emptyCard)
                 setPublicCard(tmpPublicCard)
                 break;
             case 6:
+                //更新用户信息
                 let userList = json_data.Info
                 // console.log(userList)
                 for (const userListKey in userList) {
@@ -96,6 +107,7 @@ function GameMain(){
                 //User Info
                 break;
             case 7:
+                //回合信息
                 dispatch(setNowPosition(json_data.NowPosition))
                 dispatch(setMaxPoint(json_data.MaxPoint))
                 dispatch(setAllPointInRound(json_data.AllPointInRound))
@@ -103,7 +115,16 @@ function GameMain(){
                 dispatch(setNowUserDetail(json_data.Detail))
                 break;
             case 8:
+                //玩家操作
                 console.log(json_data)
+                dispatch(setGameUserOperationList(json_data))
+                dispatch(addUserOperationIntoShowList(json_data))
+                break;
+            case 9:
+                //game end
+                break;
+            case 10:
+                //win info
                 break;
             default:
                 break;

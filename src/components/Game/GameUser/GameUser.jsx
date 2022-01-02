@@ -2,16 +2,24 @@ import React from "react";
 import {useSelector} from "react-redux";
 import {getGameUserList} from "../../../features/GameUser/GameUserListSlice";
 import {getGameProcess} from "../../../features/GameProcess/GameProcess";
+import { getGameUserOperationList } from "../../../features/GameUser/GameUserLastOperation";
 
 function GameUser(data){
 
     const nowGameUserList = useSelector(getGameUserList)
     const nowGame = useSelector(getGameProcess)
     const positionUser = nowGameUserList[data.position]
+    const gameUserOperationList = useSelector(getGameUserOperationList)
     // console.log(positionUser)
     let roName = "";
     if(nowGame.nowPosition === data.position){
         roName = "rotatePic"
+    }   
+    let content = ""
+    if(JSON.stringify(gameUserOperationList[data.position]) !== "{}"){
+        let opLog = gameUserOperationList[data.position]
+
+        content = opLog.Operation + " " + opLog.PointNumbr;
     }
 
 
@@ -31,7 +39,7 @@ function GameUser(data){
                     {positionUser.Name}
                 </div>
                 <div className="PanelCard">
-                    上次操作 + 本局游戏状态
+                    {content}
                 </div>
                 <div className="PanelPoint">
                     {positionUser.Point}

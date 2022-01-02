@@ -3,13 +3,14 @@ import userReducer from "./features/user/userSlice";
 import gameUserListReducer from "./features/GameUser/GameUserListSlice";
 import gameProcessReducer from "./features/GameProcess/GameProcess";
 import userOperation from "./features/GameProcess/UserOperation";
-import GameUserListSlice from "./features/GameUser/GameUserListSlice";
+import gameUserLastOperation from "./features/GameUser/GameUserLastOperation";
 
 export default configureStore({
     reducer:{
         user:userReducer,
         gameUserList:gameUserListReducer,
         gameProcess:gameProcessReducer,
-        userOperation:userOperation
+        userOperation:userOperation,
+        gameUserOperationList:gameUserLastOperation
     }
 })

@@ -17,16 +17,31 @@ function ShowPanel(data){
 
     const nowGameProcess = useSelector(getGameProcess)
 
+    let opList = nowGameProcess.lastUserOperationShowList.map((item, key) => {
+        return (
+            <div>
+                {item.Name}  {item.GameMatchLog.Operation} {item.GameMatchLog.PointNumber}
+            </div>
+        )
+    })
+
+    let GameMatchDetail = nowGameProcess.gameMatchDetail
+
     return (
         <div className="ShowPanel">
             <div className="CardListLine">
                 {cardList}
             </div>
-            <div>
-                It's Turn to {nowGameProcess.nowPosition}
+            <div className="ShowUserOperationListPanel">
+                {opList}
+            </div>
+            <div className="ShowGameRoundInfoPanel">
+                <p>当前已知的情报：</p>
+                <p>小盲位置：{GameMatchDetail.SmallBindPosition}</p>
             </div>
         </div>
     )
 }
+
 
 export default ShowPanel
