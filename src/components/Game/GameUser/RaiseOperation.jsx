@@ -15,11 +15,15 @@ function RaiseOperation(){
     const nowUser = useSelector(selectUser)
     const nowGame = useSelector(getGameProcess)
 
+    // const canDo = nowUser.position === nowGame.nowPosition && !nowGame.nowUserDetail.AllowOp.includes("raise")
+
     const [canDo,setDo] = useState(true)
     useEffect(()=>{
-        if(nowUser.position != nowGame.nowPosition){
+        if(nowGame.nowStatus !== 'inGame'){
             setDo(false)
-        }else if(!nowGame.nowUserDetail.AllowOp.includes("raise")){
+        }else if(nowUser.position !== nowGame.nowPosition){
+            setDo(false)
+        }else if(JSON.stringify(nowGame.nowUserDetail) !== "{}" && !nowGame.nowUserDetail.AllowOp.includes("raise")){
             setDo(false)
         }else{
             setDo(true)
@@ -39,7 +43,7 @@ function RaiseOperation(){
                 </div>
                 <div>
                     <div className="RaiseButton" onClick={(event)=>{
-                        if(nowUser.position != nowGame.nowPosition){
+                        if(nowUser.position !== nowGame.nowPosition){
                             message.error({
                                 content:"急什么，没到你呢",
                                 className:"message-custom-error",

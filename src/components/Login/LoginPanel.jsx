@@ -48,7 +48,7 @@ function LoginPanel(){
                 withCredentials:true,
                 async:true
             }).then(res=>{
-                // console.log(res)
+                console.log(res)
                 let tmpUser = {
                     name : res.Data.Name,
                     point : res.Data.Point,

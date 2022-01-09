@@ -5,13 +5,23 @@ import {loadUserState} from "./localStorage";
 const persistedUser =  loadUserState()
 
 export const slice = createSlice({
-    name:'user',
+    name:'userInfo',
     initialState:persistedUser,
     reducers:{
         setUser:(state,action) => {
-            state = action.payload
+            console.log(state)
+            console.log(action)
+            state.avatar = action.payload.avatar
+            state.name = action.payload.name
+            state.point = action.payload.point
+            state.userId = action.payload.userId
+            state.position = action.payload.position
+
         },
-        clearUser: state => {
+        setUserPosition:(state,action)=>{
+            state.position = action.payload
+        },
+        clearUser: (state,action) => {
             state ={
                 name:'You',
                 point:0,
@@ -23,8 +33,8 @@ export const slice = createSlice({
     }
 })
 
-export const { setUser,clearUser} = slice.actions
+export const { setUser,clearUser,setUserPosition} = slice.actions
 
-export const selectUser = (state)=>state.user
+export const selectUser = (state)=>state.userInfo
 
 export default slice.reducer

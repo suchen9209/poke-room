@@ -16,7 +16,7 @@ function FullScreenTip(data){
     const nowUser = useSelector(selectUser)
 
     useEffect(()=>{
-        if(gameProcess.nowPosition != nowUser.position){
+        if(gameProcess.nowPosition === nowUser.position && gameProcess.nowStatus === 'inGame'){
             setShow(true)
         }
         setTimeout(()=>{

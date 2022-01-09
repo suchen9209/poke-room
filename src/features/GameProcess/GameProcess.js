@@ -11,14 +11,6 @@ export const slice = createSlice({
         gameMatchDetail:{},
         nowUserDetail:{},
         lastUserOperationShowList:[
-            {
-                "GameMatchLog":{
-                    "Operation":"raise",
-                    "PointNumber":5
-                },
-                "Name":"wuke",
-                "Position":2
-            }
         ]
     },
     reducers:{
@@ -44,7 +36,7 @@ export const slice = createSlice({
             state.nowUserDetail = action.payload
         },
         addUserOperationIntoShowList:(state,action)=>{
-            state.lastUserOperationShowList.pusu(action.payload)
+            state.lastUserOperationShowList.push(action.payload)
             if(state.lastUserOperationShowList.length > 5){
                 state.lastUserOperationShowList.shift()
             }

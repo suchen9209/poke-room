@@ -4,6 +4,8 @@ import {selectUser} from "../../../features/user/userSlice";
 
 function UserNameAndAvatar(){
     const nowUser = useSelector(selectUser)
+    console.log("-------------")
+    console.log(nowUser)
 
     return (
         <div>

@@ -7,7 +7,7 @@ import gameUserLastOperation from "./features/GameUser/GameUserLastOperation";
 
 export default configureStore({
     reducer:{
-        user:userReducer,
+        userInfo:userReducer,
         gameUserList:gameUserListReducer,
         gameProcess:gameProcessReducer,
         userOperation:userOperation,

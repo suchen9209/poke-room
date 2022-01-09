@@ -10,14 +10,22 @@ import FoldOperation from "./GameUser/FoldOperation";
 import AllInOperation from "./GameUser/AllInOperation";
 import Card from "../Card/Card";
 import ShowPanel from "./ShowPanel/ShowPanel";
-import {selectUser, setUser} from "../../features/user/userSlice";
+import {selectUser, setUser, setUserPosition} from "../../features/user/userSlice";
 import {useDispatch, useSelector} from "react-redux";
 import {setGameUser} from "../../features/GameUser/GameUserListSlice";
 import GameOperationPanel from "./ShowPanel/GameOperationPanel";
 // import { connect } from '@giantmachines/redux-websocket';
 import {clearOperation, getOperation} from "../../features/GameProcess/UserOperation";
 import {Link} from "react-router-dom";
-import {setNowPosition, setGameStatus, setAllPointInRound, setGameMatchDetal, setNowUserDetail, addUserOperationIntoShowList} from "../../features/GameProcess/GameProcess";
+import {
+    setNowPosition,
+    setGameStatus,
+    setAllPointInRound,
+    setGameMatchDetal,
+    setNowUserDetail,
+    addUserOperationIntoShowList,
+    setMaxPoint
+} from "../../features/GameProcess/GameProcess";
 import FullScreenTip from './ShowPanel/FullScreenTip';
 import { setGameUserOperationList } from '../../features/GameUser/GameUserLastOperation';
 // import GoldFlyShow from './ShowPanel/GoldFlyShow';
@@ -102,8 +110,12 @@ function GameMain(){
                 let userList = json_data.Info
                 // console.log(userList)
                 for (const userListKey in userList) {
+                    if(nowUser.userId === userList[userListKey].UserId ){
+                        dispatch(setUserPosition(userList[userListKey].Position))
+                    }
                     dispatch(setGameUser(userList[userListKey]))
                 }
+
                 //User Info
                 break;
             case 7:
@@ -121,6 +133,7 @@ function GameMain(){
                 dispatch(addUserOperationIntoShowList(json_data))
                 break;
             case 9:
+                dispatch(setGameStatus("online"))
                 //game end
                 break;
             case 10:

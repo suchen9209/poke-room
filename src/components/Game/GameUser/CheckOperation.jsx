@@ -13,9 +13,11 @@ function CheckOperation(){
     const nowGame = useSelector(getGameProcess)
     const [canDo,setDo] = useState(true)
     useEffect(()=>{
-        if(nowUser.position != nowGame.nowPosition){
+        if(nowGame.nowStatus !== 'inGame'){
             setDo(false)
-        }else if(!nowGame.nowUserDetail.AllowOp.includes("check")){
+        }else if(nowUser.position !== nowGame.nowPosition){
+            setDo(false)
+        }else if(JSON.stringify(nowGame.nowUserDetail) !== "{}" && !nowGame.nowUserDetail.AllowOp.includes("check")){
             setDo(false)
         }else{
             setDo(true)
@@ -24,7 +26,7 @@ function CheckOperation(){
     },[nowGame,nowUser])
     return (
         <div className="UserOperationItem" onClick={()=>{
-            if(nowUser.position != nowGame.nowPosition){
+            if(nowUser.position !== nowGame.nowPosition){
                 message.error({
                     content:"急什么，没到你呢",
                     className:"message-custom-error",

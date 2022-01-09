@@ -6,7 +6,8 @@ import {selectUser} from "../features/user/userSlice";
 
 
 function AvatarPanel(){
-    const nowUser = useSelector(selectUser).userInfo
+    const nowUser = useSelector(selectUser)
+    console.log(nowUser)
     return (
         <div>
             <div className="Avatar-panel">
@@ -21,7 +22,7 @@ function AvatarPanel(){
 }
 function LinePanel(){
     // const nowUser = useSelector((state)=>state.user.userInfo)
-    const nowUser = useSelector(selectUser).userInfo
+    const nowUser = useSelector(selectUser)
     console.log(nowUser)
     const nowPoint = "当前积分："+nowUser.point
     const nowLevel = "当前等级：狠之间"

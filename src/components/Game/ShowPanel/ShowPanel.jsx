@@ -7,7 +7,6 @@ import { getGameProcess } from "../../../features/GameProcess/GameProcess";
 function ShowPanel(data){
     console.log(data)
     let cardList = data.publicCard.map((item, key) => {
-        console.log(item)
         return (
             <div className="UserCardItem">
                 <Card color={item.Color} value={item.Value} />

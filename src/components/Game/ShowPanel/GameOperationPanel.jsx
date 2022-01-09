@@ -16,7 +16,7 @@ function GameOperationPanel(data){
 
     // dispatch()
     useEffect(()=>{
-        if(gameProcess.nowStatus !== "inGame"){
+        if(gameProcess.nowStatus === "online"){
             setShow(true)
         }
     },[gameProcess.nowStatus])
