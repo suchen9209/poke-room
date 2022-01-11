@@ -37,14 +37,17 @@ export const slice = createSlice({
         },
         addUserOperationIntoShowList:(state,action)=>{
             state.lastUserOperationShowList.push(action.payload)
-            if(state.lastUserOperationShowList.length > 5){
+            if(state.lastUserOperationShowList.length > 10){
                 state.lastUserOperationShowList.shift()
             }
+        },
+        clearUserOperationShowList:(state,action)=>{
+            state.lastUserOperationShowList = []
         }
     }
 })
 
-export const { setGameStatus,setGameUserNumber,setNowPosition,setMaxPoint,setAllPointInRound,setGameMatchDetal,setNowUserDetail,addUserOperationIntoShowList} = slice.actions
+export const { setGameStatus,setGameUserNumber,clearUserOperationShowList,setNowPosition,setMaxPoint,setAllPointInRound,setGameMatchDetal,setNowUserDetail,addUserOperationIntoShowList} = slice.actions
 
 // export const getGameUserList = (state)=>state.gameUserList
 export const getGameProcess = (state)=>state.gameProcess

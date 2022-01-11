@@ -55,7 +55,7 @@ function RaiseOperation(){
                             let allowOp = nowGame.nowUserDetail.AllowOp
                             // let allowOp = [1,2,3]
                             if(allowOp.includes("raise")){
-                                sendMsg("user_op",op.point,"raise","")
+                                sendMsg("user_op",op.Point,"raise","")
                                 setShow(false)
                             }else{
                                 message.error({

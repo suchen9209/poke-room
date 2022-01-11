@@ -18,6 +18,8 @@ function GameOperationPanel(data){
     useEffect(()=>{
         if(gameProcess.nowStatus === "online"){
             setShow(true)
+        }else{
+            setShow(false)
         }
     },[gameProcess.nowStatus])
 

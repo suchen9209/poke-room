@@ -36,7 +36,7 @@ function FoldOperation(){
                 })
             }else{
                 // let allowOp = [1,2,3]
-                if(nowGame.nowUserDetail.AllowOp.includes("raise")){
+                if(nowGame.nowUserDetail.AllowOp.includes("fold")){
                     sendMsg("user_op",op.point,"fold","")
                 }else{
                     message.error({

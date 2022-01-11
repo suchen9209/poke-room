@@ -1,7 +1,6 @@
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {getGameProcess} from "../../../features/GameProcess/GameProcess";
-import axios from "axios";
 import {setUser, selectUser} from "../../../features/user/userSlice";
 import {sendMsg} from "../GameMain";
 
@@ -28,7 +27,6 @@ function FullScreenTip(data){
     return (
         <div className="GameOperationPanel" style={isShow ? {'display':'block'} : {'display':'none'}} onClick={()=>{setShow(false)}}>
                 <img src="/img/yourturn.png" width="100%"/>
-            
         </div>
     )
 }

@@ -37,7 +37,7 @@ function CheckOperation(){
             }else{
                 let allowOp = nowGame.nowUserDetail.AllowOp
                 // let allowOp = [1,2,3]
-                if(allowOp.includes("raise")){
+                if(allowOp.includes("check")){
                     sendMsg("user_op",op.point,"check","")
                 }else{
                     message.error({

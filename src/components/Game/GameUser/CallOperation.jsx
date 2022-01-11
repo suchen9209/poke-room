@@ -37,7 +37,7 @@ function CallOperation(){
             }else{
                 let allowOp = nowGame.nowUserDetail.AllowOp
                 // let allowOp = [1,2,3]
-                if(allowOp.includes("raise")){
+                if(allowOp.includes("call")){
                     sendMsg("user_op",op.point,"call","")
                 }else{
                     message.error({

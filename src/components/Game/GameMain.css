@@ -226,12 +226,33 @@
     z-index: 10;
     /*display: none;*/
 }
+.EndGamePanel{
+    top: 4%;
+    left: 21rem;
+    position: fixed;
+     background: #07a8b1; 
+    width: 54rem;
+    height: 43rem;
+    z-index: 10;
+
+}
 
 .GameOperationButton{
     width: 100%;
     height: 400px;
     line-height: 400px;
     margin: auto;
+}
+
+.EndGameButton{
+    width: 50%;
+    height: 400px;
+    line-height: 400px;
+    margin: auto;
+    display: inline-block;
+}
+.EndGameButton img{
+    width: 100%;
 }
 
 .RaiseButton{

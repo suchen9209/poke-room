@@ -37,7 +37,7 @@ function AllInOperation(){
             }else{
                 let allowOp = nowGame.nowUserDetail.AllowOp
                 // let allowOp = [1,2,3]
-                if(allowOp.includes("raise")){
+                if(allowOp.includes("allin")){
                     sendMsg("user_op",op.point,"allin","")
                 }else{
                     message.error({

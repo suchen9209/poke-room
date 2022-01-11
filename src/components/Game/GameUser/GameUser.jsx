@@ -19,7 +19,7 @@ function GameUser(data){
     if(JSON.stringify(gameUserOperationList[data.position]) !== "{}"){
         let opLog = gameUserOperationList[data.position]
 
-        content = opLog.Operation + " " + opLog.PointNumbr;
+        content = opLog.Operation + " " + opLog.PointNumber;
     }
 
 

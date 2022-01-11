@@ -24,10 +24,11 @@ import {
     setGameMatchDetal,
     setNowUserDetail,
     addUserOperationIntoShowList,
-    setMaxPoint
+    setMaxPoint, clearUserOperationShowList
 } from "../../features/GameProcess/GameProcess";
 import FullScreenTip from './ShowPanel/FullScreenTip';
 import { setGameUserOperationList } from '../../features/GameUser/GameUserLastOperation';
+import EndGameShow from "./ShowPanel/EndGameShow";
 // import GoldFlyShow from './ShowPanel/GoldFlyShow';
 
 let ws = {}
@@ -43,6 +44,7 @@ function GameMain(){
     const emptyCard = {Color:"",value:0}
     const [card1, setCard1] = useState(emptyCard);
     const [card2, setCard2] = useState(emptyCard);
+    const [endShowGameInfo, setEndShowGameInfo] = useState({});
     const [publicCard, setPublicCard] = useState([
         emptyCard,
         emptyCard,
@@ -58,16 +60,21 @@ function GameMain(){
     ws.onmessage =  (event)=> {
         let data = event.data
         let json_data =JSON.parse(data)
-        console.log(json_data)
+        // console.log(json_data)
         switch (json_data.Type){
             //
             case 0:
                 // JOIN
                 //You joined the chat room.
-                dispatch(setGameStatus(json_data.gameInfo))
+                // dispatch(setGameStatus(json_data.gameInfo))
                 // console.log(json_data)
                 break;
-            case 1:
+            case 11:
+                //game start
+                console.log(json_data)
+                dispatch(setGameStatus('inGame'))
+                setEndShowGameInfo({})
+                dispatch(clearUserOperationShowList())
                 break;
             case 3:
                 //发牌
@@ -133,10 +140,13 @@ function GameMain(){
                 dispatch(addUserOperationIntoShowList(json_data))
                 break;
             case 9:
-                dispatch(setGameStatus("online"))
+                dispatch(setGameStatus("endGame"))
                 //game end
                 break;
             case 10:
+                setEndShowGameInfo(json_data)
+
+                console.log(json_data)
                 //win info
                 break;
             default:
@@ -157,6 +167,7 @@ function GameMain(){
             <div className="MainPanel">
                 <FullScreenTip />
                 <GameOperationPanel />
+                <EndGameShow info={endShowGameInfo} />
                 <ShowPanel publicCard={publicCard}/>
                 <div className="UserPanel" >
                     <UserNameAndAvatar/>
