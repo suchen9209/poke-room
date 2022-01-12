@@ -65,10 +65,13 @@ function EndGameShow(data){
         })
 
         let positionUser = nowGameUserList[info.WinPos]
-        winner = positionUser.Name
+        winner = info.WinPos.map((item,key)=>{
+            return (
+                positionUser.Name + " "
+            )
+        })
 
-        show = ()=>{
-            return(
+        show = (
                 <div>
                     <div className="WinCard">
                         Public:
@@ -83,7 +86,7 @@ function EndGameShow(data){
                     </div>
                 </div>
             )
-        }
+
     }
 
 
